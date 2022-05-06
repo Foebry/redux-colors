@@ -20,14 +20,14 @@ each color is an object containing:
 
      - id
      - name
-     - code (hexvalue of colorpicker)r
+     - color (hexvalue of colorpicker)r
 
 ColorReducer provides the following actions
 
      - addColor({name:string,code:string})
      - removeColor(id:string)
      - changeName({id:string, name:string})
-     - changeCode({id:string, code:string})
+     - changeColor({id:string, code:string})
 
 ## setup
 
