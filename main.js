@@ -6,6 +6,7 @@ const onBlur = (e) => {
   const id = e.target.parentElement.id;
   const name = e.target.innerText;
   store.dispatch(changeName({ id, name }));
+  console.log(store.getState().colors);
 };
 
 const resetBlurEvents = () => {
@@ -22,18 +23,18 @@ const render = () => {
 `;
 
   document.querySelector(".colorList p").innerHTML =
-    store.getState().colorState.colors.length > 0
+    store.getState().colors.length > 0
       ? "This is a list of your colors."
       : "You currently have no colors.";
 
   document.querySelector("form p").innerHTML =
-    store.getState().colorState.colors.length == 0
+    store.getState().colors.length == 0
       ? "Start by creating a color."
       : "Let's create another color!";
 
   document.querySelector("div ul").innerHTML = store
     .getState()
-    .colorState.colors.map(
+    .colors.map(
       ({ id, color, name }) =>
         `<li id=${id}><p name='name' style="color:${color}"contentEditable>${name}</p><input type='color' name='color' value=${color} /><button name="delete">X</button></li>`
     )
